@@ -41,3 +41,68 @@ let iniqueArr = arr.reduce ((acc, curr) => {
 } , []);
 console.log(iniqueArr);
 
+
+//4-masala
+let users = [
+
+        { name: "Abdulaziz", age: 33, },
+        { name: "Erkin", age: 22, },
+        { name: "Temur", age: 34, },
+        { name: "Sardor", age: 20,},
+]
+ let updatedUsers = users.map(user => {
+    return {
+        ...user,
+        isMarried: user.age >= 25 ? true : false
+    };
+});
+console.log(updatedUsers);
+
+//5-masala
+const books = [
+    {
+        title: "Halqa",
+        author: "Akrom Malik",
+        alreadyRead: false,
+    },
+    {
+        title: "Dunyo ishlari",
+        author: "O'tkir Hoshimov",
+        alreadyRead: true,
+    },
+    {
+        title: "Vaqtning qadri",
+        author: "Abdulfattoh Abu G'udda",
+        alreadyRead: false,
+    },
+];
+books.forEach((book, index) => {
+    let status = book.alreadyRead ? "o'qilgan" : "o'qilmagan";
+    console.log(
+        `${index + 1}. "${book.title}" - ${book.author} - ${status}`
+    );
+    
+})
+
+//6-masala
+const toriJovoblar = {
+    1: "B", 2: "A", 3: "C", 4: "D", 5: "B",
+    6: "C", 7: "A", 8: 'D', 9: "A", 10: "B"
+}
+const AbdulazizJovoblar = {
+    1: "C", 2: "A", 3: "D", 4: "D", 5: "B",
+    6: "C", 7: "B", 8: "C", 9: "A", 10: "C"
+}
+
+let Togri = 0;
+let Notogri = 0;
+
+for (let key in toriJovoblar) {
+    if (toriJovoblar[key] === AbdulazizJovoblar[key]) {
+        Togri++;
+    } else {
+        Notogri++;
+    }
+}
+console.log(`To'g'ri javoblar soni: ${Togri}`);
+console.log(`Noto'g'ri javoblar soni: ${Notogri}`);
