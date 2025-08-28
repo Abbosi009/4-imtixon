@@ -106,3 +106,78 @@ for (let key in toriJovoblar) {
 }
 console.log(`To'g'ri javoblar soni: ${Togri}`);
 console.log(`Noto'g'ri javoblar soni: ${Notogri}`);
+
+// 7-masala
+
+String.prototype.count = function (char) {
+    let count = 0;
+    for (let i = 0; i < this.length; i++) {
+        if (this[i].toLowerCase() === char.toLowerCase()) {
+            count++;
+        }
+    }
+    return count;
+};
+
+// Test
+let str = "Abdulaziz Programmer";
+let char = "a";
+console.log(str.count(char)); // 2
+
+// 8-masala
+function Productt(name, company, price, discount) {
+    this.name = name;
+    this.company = company;
+    this.price = price;
+    this.discount = discount || 0;
+
+    Productt.prototype.getInfo = function () {
+        if (this.discount > 0) {
+            let newPrice = this.price - (this.price * this.discount / 100);
+            console.log(`${this.company} kompaniyasi tomonidan ishlab chiqarilgan ${this.name} ning asl narxi ${this.price}$ Aksiyadagi narxi esa ${newPrice}$.`);
+        } else {
+            console.log(`${this.company} kompaniyasi tomonidan ishlab chiqarilgan ${this.name} ning asl narxi ${this.price}$. Aksiya mavjud emas!`);
+
+}}}
+
+let p1 = new Productt("iPhone 14", "Apple", 1200, 10);
+let p2 = new Productt("Galaxy S23", "Samsung", 1000);
+
+p1.getInfo();
+p2.getInfo();
+
+// 9-masala
+function Employee(name, salary, workName) {
+    this.name = name;
+    this.salary = salary;
+    this.workName = workName;
+}
+
+Employee.prototype.increaseSalary = function (percent) {
+    let newSalary = this.salary + (this.salary * percent / 100);
+    return newSalary;
+};
+let emp1 = new Employee("Abdulaziz", 1500, "Google");
+console.log(emp1.increaseSalary(10));
+
+//10-masala
+function getTopProducts(products, n) {
+    return products
+        .sort((a, b) => b.price - a.price)
+        .slice(0, n)
+        .map(product => product.name);
+}
+
+const producct =[
+    { id: 1, name: "Product A", price: 100 },
+    { id: 2, name: "Product B", price: 200 },
+    { id: 3, name: "Product C", price: 150 },
+    { id: 4, name: "Product D", price: 300 },
+    { id: 5, name: "Product E", price: 250 },
+    { id: 6, name: "Product F", price: 50 },
+    { id: 7, name: "Product G", price: 400 },
+    { id: 8, name: "Product H", price: 350 },
+    { id: 9, name: "Product I", price: 450 },
+]
+let n = 3;
+console.log(getTopProducts(producct, n)); 
